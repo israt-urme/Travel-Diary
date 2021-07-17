@@ -1,0 +1,44 @@
+{% extends 'main/body.html' %}
+{% block content %}
+
+    <div class="row p-3 intro">
+        <div class="col-6">
+            <div class="d-flex justify-content-start intro">
+                <a class="a-btn" href="{% url 'places' %}">Back</a>
+            </div>
+        </div>
+        <div class="col-6 text-end">
+            <a class="a-btn" href="{% url 'update' details.id %}">edit</a>
+        </div>
+    </div> 
+
+    <div class="card-body bg-light" style="border-radius: 15px;">
+    {% if details %}
+        <h3 class="title">{{details}}</h3>
+        <p style="text-align: center;">Added at {{details.date.day}}-{{details.date.month}}-{{details.date.year}} TIME: {{details.date.time}}</p>
+        {% if details.visited %}
+            <p class="text-end">visited status: ✅</p>
+        {% else %}
+            <p class="text-end">visited status: ⛔️</p>
+        {% endif %}
+        {% if details.image %}
+        <div class="text-center">
+            <img class="rounded" src="{{ details.image.url}}" style="max-height:512px; max-width:512px">
+        </div>
+        {% else %}
+        <div class="text-center p-10" style="border: 1px solid black;">
+                <h3 class="card-body p-10">Add Image</h3>
+        </div>
+        {% endif %}
+
+        {% if details.description %}
+        <p class="mt-4">{{details.description}}</p>
+        {% else %}
+        <div class="text-center mt-8 p-5">
+                <h5>Add Description</h5>
+        </div>
+        {% endif %}
+
+    {% endif %}
+</div>
+{% endblock content %}

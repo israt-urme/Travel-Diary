@@ -1,0 +1,65 @@
+{% extends 'main/body.html' %}
+{% block content %}
+
+<div class="row p-3 intro">
+    <div class="col-4">
+        <div class="d-flex justify-content-start intro">
+            <div class="circle"></div>
+            <h5 style="margin-left: 5px;"><span style="font-style: italic;">{{request.user|title}}</span>'s
+                profile</h5>
+        </div>
+    </div>
+    <div class="col-8 text-end">
+        {% if request.user.is_authenticated %}
+        <a class="a-btn" href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+</div>
+<hr>
+<h1 class="title">MY TRAVEL DIARY</h1>
+<div class="row p-3 justify-content-center">
+    <div class="col-8">
+        <div class="search_wrap">
+            <form class="search_box" method="GET">
+                <input class="s-input" placeholder="Search here" type="text"
+                    name="search" value="{{ search_input }}" />
+                <button class="btn" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3 mb-3 p-3" style="background-color: rgba(144, 241,
+    241, 0.541);">
+    <div class="row p-2">
+        <div class="col-6">
+            <h5 style="text-decoration: underline;">List of Places:</h5>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-light" href="{% url 'form' %}">Add Place <span><i
+                        class="fa fa-plus"></i></span></a>
+        </div>
+    </div>
+    {% if places %}
+    <p>Please press any of these to view/update details.</p>
+    {% endif %}
+    <div class="table-responsive" style="background-color: rgba(250, 250, 250,
+        0.801)">
+        <table class="table table-hover table-striped">
+            {% for place in places %}
+            <tr>
+                <td><a class="t-title" href="{% url 'details' place.id %}">{{place.name|title}}
+                        - {{place.country|title}}</a></td>
+                <td><a class="t-delete" href="{% url 'delete' place.id %}">Delete
+                        <span><i class="fas fa-backspace"></i></span></a></td>
+            </tr>
+            {% empty %}
+            <h3 style="text-align: center;">No places in the list.</h3>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock content %}

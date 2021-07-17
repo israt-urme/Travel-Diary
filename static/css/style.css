@@ -1,0 +1,107 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-fluid{
+    background: url("/media/design/background1.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+body, .list-row{
+    min-height: 100vh;
+}
+.bg-col{
+    background: rgba(203, 234, 240, 0.7);
+}
+
+.circle{
+    border: white solid 2px;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    background-image: url("/media/design/background.jpg");
+}
+.login-circle{
+    border: white solid 5px;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+}
+.intro{
+    align-items: center;
+}
+
+.a-btn{
+    text-decoration: none;
+    color: black;
+    padding: 8px 32px;
+    font-size: 16px;
+    border: 2px solid rgb(0, 123, 172);
+    border-radius: 25px;
+    background-color: white;
+    cursor: pointer;
+}
+.a-btn:hover{
+    background: rgb(0, 123, 172);
+    color: white;
+    font-weight: 600;
+}
+
+.title{
+    text-align: center;
+    font-weight: 800;
+    font-family: 'Caveat', cursive;
+    font-size: 60px;
+}
+
+/* search area */
+
+.search_wrap .search_box{
+	position: relative;
+	width: 400px;
+	height: 50px;
+}
+
+.search_wrap .search_box .s-input{
+    border: none;
+	width: 100%;
+	height: 100%;
+	padding: 10px 20px;
+	border-radius: 50px;
+	font-size: 18px;
+}
+
+.search_wrap .search_box .btn{
+	position: absolute;
+	height: 70%;
+	background: rgb(0, 123, 172);
+	cursor: pointer;
+    width: 125px;
+	top: 8px;
+	right: 5px;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.search_wrap .search_box .btn:hover{
+	background: black;	
+}
+
+/* end */
+
+.t-title{
+    text-decoration: none;
+    color: navy;
+    font-size: large;
+}
+
+.t-delete{
+    text-decoration: none;
+    color: maroon;
+}
